@@ -1,0 +1,9 @@
+//Default message to marketing agencies offering LeadGenisis Tool
+const MarketingAgency = {
+    email: (receipientName='Sir/Madam', ctaUrl='YOUR CTA URL', senderName='YOUR NAME') =>`Dear ${receipientName},\n\nI discovered your company whilst using and developing a tool to enhance my marketing efforts, called LeadGenisis. As a marketing company I thought such a tool may be beneficial to you as it provides the following key benefits:\n\nKey Benefits:\n- Enhanced Reach: Find all companies for any postcode and filter by keyword, ensuring a targeted approach to your marketing efforts.\n- Comprehensive Lead Data: Company details (name, industry, address, etc.), contact info (phone number, email), and digital presence (website, Google Reviews - number, rating, and actual reviews if required). The information can be provided in CSV or JSON format.\n- Actionable Insights: Uncover industry trends and competitor analysis for informed strategic decisions.\n\nWhile LeadGenesis is still in finishing stages of development, it's fully functional for my independent use. I am happy to provide you with demo results for a postcode of your choice. I am open to engaging in a more in-depth discussion regarding how LeadGenesis can provide further support and enhancement to your marketing efforts.\n\nTo express your interest please complete this short Microsoft Form (only your email is required), ${ctaUrl}\n\n\nP.S. If your company has any other software or data-related needs, I would be happy to discuss and accommodate.\n\nBest regards,\n\n${senderName}`,
+    subject: `Idea for enhancing your Marketing Strategies`,
+}
+
+export{
+    MarketingAgency,
+}

@@ -157,7 +157,7 @@ const HomeScreen = ({navigation}: any) => {
           text={'Find Companies'}
           backgroundColor={isDark? themes.dark.primaryColor:themes.light.primaryColor}
           icon = {'search'}
-          disabled={!queryPostcode}
+          // disabled={!queryPostcode}
           loading={loading}
           color={themes.dark.textColor}
         />

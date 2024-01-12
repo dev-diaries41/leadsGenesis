@@ -184,9 +184,8 @@ const save = async (uri: string, filename: string, mimetype: string) => {
     fetchMoreLeads(resultsMetadata.queryPostcode, resultsMetadata.keywords);
   }; 
 
-  return (
-  <SafeAreaView style = {[styles.container, {backgroundColor: isDark? themes.dark.backgroundColor: themes.light.backgroundColor}]}>
-     {myLeads.companiesInfo.length === 0 && (
+  if(myLeads.companiesInfo.length === 0){
+    return (
       <EmptyScreen 
         title={"No Companies"} 
         description={noLeadsMessage} 
@@ -194,17 +193,17 @@ const save = async (uri: string, filename: string, mimetype: string) => {
         icon={'briefcase-outline'}
         metadataIcon={'briefcase-outline'}
       />
-     )}
-      {myLeads.companiesInfo.length > 0 && (
-          <Search 
-            leads={myLeads.companiesInfo} 
-            placeholder='Search leads...' 
-            backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
-            color={isDark? themes.dark.textColor:themes.light.textColor}
-          />
-      )}
-      {myLeads.companiesInfo.length > 0 && <TextWithIconButton icon={'filter'} buttonText={'Sort'} color={themes.secondaryIcon} onPress={()=> console.log('Pressed filter')}/>}
-
+    )
+  }
+  return (
+  <SafeAreaView style = {[styles.container, {backgroundColor: isDark? themes.dark.backgroundColor: themes.light.backgroundColor}]}>
+    <Search 
+      leads={myLeads.companiesInfo} 
+      placeholder='Search leads...' 
+      backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
+      color={isDark? themes.dark.textColor:themes.light.textColor}
+    />
+     <TextWithIconButton icon={'filter'} buttonText={'Sort'} color={themes.secondaryIcon} onPress={()=> console.log('Pressed filter')}/>
      <View style={[styles.leadsContainer,  {backgroundColor: isDark? themes.dark.containerBackground: themes.light.containerBackground}]}>
       <FlashList
         data={isSearching && searchResults? searchResults: myLeads.companiesInfo}

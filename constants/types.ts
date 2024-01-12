@@ -8,7 +8,7 @@ interface Email {
 interface Lead { 
   name: string; 
   emails: Email[]; 
-  status: string; 
+  status?: string; 
   category: string;
   stars: number;
   numReviews: number;
@@ -19,7 +19,7 @@ interface Lead {
   phone: string;
   plusCode: string;
   used: boolean;
-  queryPostcode: boolean;
+  queryPostcode: string;
   notes?: string;
 }
 

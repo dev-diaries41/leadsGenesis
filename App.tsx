@@ -25,6 +25,7 @@ import CreateAccountScreen from './screens/AuthScreens/CreateAccountScreen';
 import ForgotPassword from './screens/AuthScreens/ForgotPassword';
 import LoginScreen from './screens/AuthScreens/LoginScreen';
 import SignOutScreen from './screens/AuthScreens/SignOut';
+import { placeholderResults } from './constants/placeholders';
 
 const Drawer = createDrawerNavigator();
 SplashScreen.preventAutoHideAsync(); // Prevent the splash screen from auto hiding

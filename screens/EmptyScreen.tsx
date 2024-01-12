@@ -28,7 +28,7 @@ const EmptyScreen = ({title, description, metadata, icon, metadataIcon}: EmptySc
       });
     }, [navigation, theme]);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style = {[styles.container, {backgroundColor: isDark? themes.dark.backgroundColor: themes.light.backgroundColor}]}>
         <InfoCard 
           title={title} 
           description={description} 
@@ -38,6 +38,7 @@ const EmptyScreen = ({title, description, metadata, icon, metadataIcon}: EmptySc
           backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
           highlighterBackground={isDark? themes.dark.primaryColor:themes.light.secondaryBackgroundColor}
           color={isDark? themes.dark.textColor:themes.light.textColor}
+          iconColor={isDark? themes.dark.icon:themes.secondaryIcon}
         />
         <View style={styles.buttonContainer}>
           <Button

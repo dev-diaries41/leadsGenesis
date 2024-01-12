@@ -1,4 +1,5 @@
 import { MarketingAgency } from "./outreachEmails";
+import { placeholderResults } from "./placeholders";
 
 const defaultResultsMetadata = {
     totalResults: 0, 
@@ -9,8 +10,10 @@ const defaultResultsMetadata = {
     remainingPages: 0
   };
   
+  // ONLY IN DEV 
+  // In prod companies info should be []
   const defaultLeadsData = {
-    companiesInfo: [],
+    companiesInfo: placeholderResults,
     insights: {},
     resultsMessage: '',
   }
@@ -18,7 +21,7 @@ const defaultResultsMetadata = {
   const defaultSettings ={
     defaultMessage: MarketingAgency.email(),
     defaultSubject: MarketingAgency.subject,
-    theme:"dark"
+    theme:"light"
   }
 
   export {defaultResultsMetadata, defaultLeadsData, defaultSettings};

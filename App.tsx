@@ -85,7 +85,7 @@ const loadSettings = async () => {
 
 //useEffect hook to prepare app on start
 useEffect(() => {
-  async function prepare() {
+  const prepare = async() => {
     try {
       await loadSettings();
       await fetchLeads();

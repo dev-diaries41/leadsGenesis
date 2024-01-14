@@ -12,7 +12,7 @@ import { themes, sizes } from '../../constants/layout';
 import {getLeads} from '../../utils/leadUtils/getLeads';
 import { noLeadsMessage } from '../../constants/systemMessages';
 import {EmptyScreen} from '../EmptyScreen';
-import { LeadCard, Search, IconButton, createFlashMsg, TextWithIconButton } from '../../components';
+import { LeadCard, Search, IconButton, createFlashMsg, TextWithIconButton, MenuModal } from '../../components';
 import { Lead } from '../../constants/types';
 
 //Constants
@@ -26,6 +26,8 @@ const LeadsScreen = ({navigation}: any) => {
   const {theme} = useSettingsContext();
   const { searchResults, query} = useSearchContext();
   const [loading, setLoading] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+
   const {showMessage, FlashMessage} = createFlashMsg();
   const thresholdReached = myLeads?.companiesInfo?.length >= MAX_ITEMS;
   const isSearching = query !== '';
@@ -195,6 +197,11 @@ const save = async (uri: string, filename: string, mimetype: string) => {
       />
     )
   }
+
+  const handleSort = () => {
+    setShowMenu(true)
+  }
+
   return (
   <SafeAreaView style = {[styles.container, {backgroundColor: isDark? themes.dark.backgroundColor: themes.light.backgroundColor}]}>
     <Search 
@@ -203,10 +210,10 @@ const save = async (uri: string, filename: string, mimetype: string) => {
       backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
       color={isDark? themes.dark.textColor:themes.light.textColor}
     />
-     <TextWithIconButton icon={'filter'} buttonText={'Sort'} color={themes.secondaryIcon} onPress={()=> console.log('Pressed filter')}/>
+     <TextWithIconButton icon={'filter'} buttonText={'Sort'} color={themes.secondaryIcon} onPress={handleSort}/>
      <View style={[styles.leadsContainer,  {backgroundColor: isDark? themes.dark.containerBackground: themes.light.containerBackground}]}>
       <FlashList
-        data={isSearching && searchResults? searchResults: myLeads.companiesInfo}
+        data={isSearching && searchResults? searchResults : myLeads.companiesInfo}
         keyExtractor={(item, index) => index.toString()}
         estimatedItemSize={ITEM_HEIGHT}
         renderItem={renderLead}
@@ -219,6 +226,13 @@ const save = async (uri: string, filename: string, mimetype: string) => {
       />
       </View>
       <FlashMessage/>
+      <MenuModal
+        visible ={showMenu}
+        onClose={() => setShowMenu(false)}
+        contentBackground={isDark? themes.dark.secondaryBackgroundColor:themes.light.secondaryBackgroundColor}
+        summaryBackground={isDark? themes.dark.backgroundColor:themes.light.backgroundColor}
+        textColor={isDark? themes.dark.textColor:themes.light.textColor}     
+      />
     </SafeAreaView>
   );
 };

@@ -210,15 +210,15 @@ interface TextButtonProps {
 
 
 interface TextWithIconButtonProps {
-onPress: () => Promise<void> | void; 
-buttonText: string; 
-fontSize?: number;
-color?: string; 
-margin?: number; 
-icon: any;
-iconSize?: number;
-justifyContent?: 'flex-start' | 'flex-end' | 'center';
-textAlign?: TextStyle['textAlign']; 
+  onPress: () => Promise<void> | void; 
+  buttonText: string; 
+  fontSize?: number;
+  color?: string; 
+  margin?: number; 
+  icon: any;
+  iconSize?: number;
+  justifyContent?: 'flex-start' | 'flex-end' | 'center';
+  textAlign?: TextStyle['textAlign']; 
 }
 
 interface SearchContextProps {
@@ -226,6 +226,14 @@ interface SearchContextProps {
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   searchResults: Lead [];
   setSearchResults: React.Dispatch<React.SetStateAction<Lead[] | []>>;
+  customerFilter: boolean; 
+  setCustomerFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  pendingFilter: boolean; 
+  setPendingFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  unansweredFilter: boolean; 
+  setUnansweredFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  prospectFilter: boolean; 
+  setProspectFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 

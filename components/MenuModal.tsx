@@ -3,6 +3,7 @@ import { StyleSheet, View,Text, Modal, Animated, PanResponder } from 'react-nati
 import { themes, sizes } from '../constants/layout';
 import { TextWithIconButton } from './TextWithIconButton';
 import { useLeadsContext } from '../context/LeadsContext';
+import { useSearchContext } from '../context/SearchContext';
 
 interface MenuModalProps { 
   visible: boolean;
@@ -21,6 +22,16 @@ const MenuModal = ({
 }: MenuModalProps) => {
 
   const {myLeads, setMyLeads} = useLeadsContext();
+  const {
+    customerFilter,
+    setCustomerFilter,
+    pendingFilter, 
+    setPendingFilter,
+    unansweredFilter, 
+    setUnansweredFilter,
+    prospectFilter,
+    setProspectFilter
+  } = useSearchContext();
   const panY = useRef(new Animated.Value(0)).current; // Start the modal off-screen
 
   const panResponder = useRef(
@@ -122,32 +133,20 @@ const MenuModal = ({
   }
 
   const sortByCustomers = () => {
-    if (!Array.isArray(myLeads.companiesInfo)) {throw new Error('Input must be an Array')};
-    const leadsDataCopy = {...myLeads};
-
-    const filteredLeads = leadsDataCopy.companiesInfo.filter( lead => lead?.status === 'Customer')
-
-    // TODO: Add filter type to search provider
-  
+   setCustomerFilter(!customerFilter)
   }
 
   const sortByPending = () => {
-    if (!Array.isArray(myLeads.companiesInfo)) {throw new Error('Input must be an Array')};
-    const leadsDataCopy = {...myLeads};
-
-    const filteredLeads = leadsDataCopy.companiesInfo.filter( lead => lead?.status === 'Pending')
-      // TODO: Add filter type to search provider
-
+    setPendingFilter(!pendingFilter)
   }
 
   const sortByUnanswered = () => {
-    if (!Array.isArray(myLeads.companiesInfo)) {throw new Error('Input must be an Array')};
-    const leadsDataCopy = {...myLeads};
-
-    const filteredLeads = leadsDataCopy.companiesInfo.filter( lead => lead?.status === 'Unanswered')
-      // TODO: Add filter type to search provider
-
+   setUnansweredFilter(!unansweredFilter)
   }
+
+  const sortByProspect = () => {
+    setProspectFilter(!prospectFilter)
+   }
   
 
 
@@ -167,9 +166,10 @@ const MenuModal = ({
               <TextWithIconButton buttonText='Company name (a - z)' icon={'text'} onPress={sortByCompanyName} justifyContent='flex-start' color={textColor}/>
               <TextWithIconButton buttonText='Rating (⇓)' icon={'star'} onPress={sortByRating} justifyContent='flex-start' color={textColor}/>
               <TextWithIconButton buttonText='Number of reviews (⇓)' icon={'receipt'} onPress={sortByReviews} justifyContent='flex-start' color={textColor}/>
-              <TextWithIconButton buttonText='Only show customers' icon={'person'} onPress={sortByCustomers} justifyContent='flex-start' color={textColor}/>
-              <TextWithIconButton buttonText='Only show pending' icon={'hourglass'} onPress={sortByPending} justifyContent='flex-start' color={textColor}/>
-              <TextWithIconButton buttonText='Only show unanswered' icon={'chatbubble-ellipses'} onPress={sortByUnanswered} justifyContent='flex-start' color={textColor}/>
+              <TextWithIconButton buttonText='Customers' icon={'person'} onPress={sortByCustomers} justifyContent='flex-start' color={customerFilter? themes.secondaryIcon : textColor}/>
+              <TextWithIconButton buttonText='Prospects' icon={'person-add'} onPress={sortByProspect} justifyContent='flex-start' color={prospectFilter? themes.secondaryIcon : textColor}/>
+              <TextWithIconButton buttonText='Pending' icon={'hourglass'} onPress={sortByPending} justifyContent='flex-start' color={pendingFilter? themes.secondaryIcon : textColor}/>
+              <TextWithIconButton buttonText='Unanswered' icon={'chatbubble-ellipses'} onPress={sortByUnanswered} justifyContent='flex-start' color={unansweredFilter? themes.secondaryIcon : textColor}/>
             </View>
           </View>
         </View>

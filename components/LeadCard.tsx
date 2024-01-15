@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { themes, sizes } from '../constants/layout';
 import { useSettingsContext } from '../context/SettingsContext';
+import { useSearchContext } from '../context/SearchContext';
 import { leadStatus } from '../constants/leadConstants';
 import { LeadCardProps } from '../constants/types';
 
@@ -14,12 +15,39 @@ const ITEM_HEIGHT = height / 6 - (sizes.layout.medium);
 
 const LeadCard = ({ lead, handleLeadPress }: LeadCardProps) => {
   const { theme } = useSettingsContext();
+  const {
+    customerFilter,
+    pendingFilter, 
+    unansweredFilter, 
+    prospectFilter,
+  } = useSearchContext();
   const isDark = theme === 'dark';
   const { name, emails, status = leadStatus.prospect } = lead;
 
   if (!emails[0].email) {
     return null;
   }
+
+  // Filter - only show customers
+  if(customerFilter && status !== leadStatus.customer){
+    return null;
+  }
+
+  // Filter - only show prospects
+  if(prospectFilter && status !== leadStatus.prospect){
+    return null;
+  }
+
+  // Filter - only show pending
+  if(pendingFilter && status !== leadStatus.pending){
+    return null;
+  }
+
+  // Filter - only show unanswered
+  if(unansweredFilter && status !== leadStatus.unanswered){
+    return null;
+  }
+
 
   const icon = () => {
     switch(status){

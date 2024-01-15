@@ -10,13 +10,26 @@ const SearchContext = createContext<SearchContextProps | undefined>(undefined);
 const SearchProvider = ({ children}: SearchProviderProps) => {
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState<Lead[]>([]);
+    const [customerFilter, setCustomerFilter] = useState(false);
+    const [pendingFilter, setPendingFilter] = useState(false);
+    const [unansweredFilter, setUnansweredFilter] = useState(false);
+    const [prospectFilter, setProspectFilter] = useState(false);
+
 
   return (
     <SearchContext.Provider value={{ 
         query, 
         setQuery,
         searchResults, 
-        setSearchResults
+        setSearchResults,
+        customerFilter, 
+        setCustomerFilter,
+        pendingFilter, 
+        setPendingFilter,
+        unansweredFilter, 
+        setUnansweredFilter,
+        prospectFilter,
+        setProspectFilter
      }}>
       {children}
     </SearchContext.Provider>

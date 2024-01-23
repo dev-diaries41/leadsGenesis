@@ -21,11 +21,10 @@ import SettingsScreen from './screens/SettingsScreen';
 import UpdateSettingsScreen from './screens/UpdateSettingsScreen';
 import DrawerContent from './components/DrawerContent';
 import LeadDetailsScreen from './screens/mainScreens/LeadDetailsScreen';
-import CreateAccountScreen from './screens/AuthScreens/CreateAccountScreen';
-import ForgotPassword from './screens/AuthScreens/ForgotPassword';
-import LoginScreen from './screens/AuthScreens/LoginScreen';
-import SignOutScreen from './screens/AuthScreens/SignOut';
-import { placeholderResults } from './constants/placeholders';
+import CreateAccountScreen from './screens/authScreens/CreateAccountScreen';
+import ForgotPassword from './screens/authScreens/ForgotPassword';
+import LoginScreen from './screens/authScreens/LoginScreen';
+import SignOutScreen from './screens/authScreens/SignOut';
 
 const Drawer = createDrawerNavigator();
 SplashScreen.preventAutoHideAsync(); // Prevent the splash screen from auto hiding

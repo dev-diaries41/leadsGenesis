@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { View, SafeAreaView, StyleSheet, Platform, Dimensions } from 'react-native';
+import { View, SafeAreaView, StyleSheet, Platform, Dimensions, Text } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import * as FileSystem from 'expo-file-system';
 import * as Papa from 'papaparse';
@@ -12,7 +12,7 @@ import { themes, sizes } from '../../constants/layout';
 import {getLeads} from '../../utils/leadUtils/getLeads';
 import { noLeadsMessage } from '../../constants/systemMessages';
 import {EmptyScreen} from '../EmptyScreen';
-import { LeadCard, Search, IconButton, createFlashMsg, TextWithIconButton, MenuModal } from '../../components';
+import { LeadCard, Search, IconButton, createFlashMsg, TextWithIconButton, MenuModal, NoSearchResults } from '../../components';
 import { Lead } from '../../constants/types';
 
 //Constants
@@ -132,7 +132,7 @@ const save = async (uri: string, filename: string, mimetype: string) => {
     setSelectedLead(lead);
     navigation.navigate('Lead Details', {
       screen: 'About Lead',
-      params: { lead }, // Pass any necessary parameters
+      params: { lead },
     });    
     setLoading(false)
   };
@@ -210,8 +210,13 @@ const save = async (uri: string, filename: string, mimetype: string) => {
       backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
       color={isDark? themes.dark.textColor:themes.light.textColor}
     />
-     <TextWithIconButton icon={'filter'} buttonText={'Sort'} color={themes.secondaryIcon} onPress={handleSort}/>
+    <View style={styles.rowContainer}>
+    <Text style={styles.label}>{isSearching && `Search Results (${searchResults.length})`}</Text>
+    <TextWithIconButton icon={'filter'} buttonText={'Sort'} color={themes.secondaryIcon} onPress={handleSort}/>
+    </View>
+     
      <View style={[styles.leadsContainer,  {backgroundColor: isDark? themes.dark.containerBackground: themes.light.containerBackground}]}>
+      {isSearching && searchResults.length === 0 && <NoSearchResults/>}
       <FlashList
         data={isSearching && searchResults? searchResults : myLeads.companiesInfo}
         keyExtractor={(item, index) => index.toString()}
@@ -256,8 +261,6 @@ const styles = StyleSheet.create({
     verticalAlign:'bottom',
     padding:sizes.layout.small,
     paddingTop:sizes.layout.large,
-
-
   },
   navRowButtons:{
     flexDirection: 'row', 
@@ -268,6 +271,16 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: sizes.layout.medium,
-  }
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent:'space-between'
+  },
+  label: {
+    fontSize: sizes.font.medium,
+    color: themes.placeholder,
+    fontFamily:'monserrat-regular'  
+  },
 });
 export default LeadsScreen;

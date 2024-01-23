@@ -6,7 +6,7 @@ import {useSettingsContext } from '../../context/SettingsContext';
 import {themes, sizes } from '../../constants/layout';
 import {getLeads} from '../../utils/leadUtils/getLeads';
 import {getLeadDescription} from '../../constants/systemMessages';
-import {InfoCard, RedDot, IconButton, createFlashMsg, Button, InputField, Spacer } from '../../components';
+import {InfoCard, RedDot, IconButton, createFlashMsg, Button, InputField } from '../../components';
 
 
 const HomeScreen = ({navigation}: any) => {
@@ -17,7 +17,6 @@ const HomeScreen = ({navigation}: any) => {
   const [isPostcodeValid, setIsPostcodeValid] = useState(true);
   const [loading, setLoading] = useState(false);
   const [newNotification, setNewNotification] = useState('');
-  // const queryMessage = `Search for ${keywords? `${keywords.toLowerCase()} `:''}companies near ${queryPostcode}`
   const {showMessage, FlashMessage} = createFlashMsg();
   const isDark = theme === 'dark';
 
@@ -138,11 +137,10 @@ const HomeScreen = ({navigation}: any) => {
             value={queryPostcode}
             onChangeText={handleQueryPostcodeChange}
             error={!isPostcodeValid && queryPostcode !== ''}
-            errorText={'Invalid postcode. Correct format is SE11 6UD or SE116UD'}
-            placeholder="Confirm Password"
+            errorText={'Invalid postcode. Correct format is SE11'}
+            placeholder="Enter postcode e.g SE11"
             color={isDark? themes.dark.textColor : themes.light.textColor }                         
           />    
-          <Spacer/>
           <Text style ={[styles.label, {color:isDark? themes.dark.textColor:themes.light.textColor,}]}>Keywords (optional):</Text>
           <InputField
             value={keywords}
@@ -157,7 +155,7 @@ const HomeScreen = ({navigation}: any) => {
           text={'Find Companies'}
           backgroundColor={isDark? themes.dark.primaryColor:themes.light.primaryColor}
           icon = {'search'}
-          // disabled={!queryPostcode}
+          disabled={!queryPostcode}
           loading={loading}
           color={themes.dark.textColor}
         />
@@ -204,6 +202,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity:1,
     shadowRadius:sizes.layout.medium,
+    gap:sizes.layout.small
   },
 
   label: {

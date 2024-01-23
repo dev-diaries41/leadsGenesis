@@ -16,6 +16,7 @@ import { TextWithIconButton } from "./TextWithIconButton";
 import { Spacer } from "./Spacer";
 import { InputField } from "./InputField";
 import { MenuModal } from "./MenuModal";
+import { NoSearchResults } from "./NoSearchResults";
 
 export {
     GradientButton,
@@ -38,4 +39,5 @@ export {
     Spacer,
     InputField,
     MenuModal,
+    NoSearchResults
 }

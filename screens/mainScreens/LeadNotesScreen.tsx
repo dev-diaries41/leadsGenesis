@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import {View, SafeAreaView, StyleSheet, TextInput, Text, StatusBar} from 'react-native';
 import {useLeadsContext} from '../../context/LeadsContext';
 import { useSettingsContext } from '../../context/SettingsContext';
 import { themes, sizes } from '../../constants/layout';
 import { DisplayModal, CustomPicker, IconButton, createFlashMsg, Spacer, Button } from '../../components';
 import { leadStatus } from '../../constants/leadConstants';
+import { useIsFocused } from '@react-navigation/native';
 
 const statusHelpInfo = `Prospect - potential business opportunity. Gathering initial information
 Customer - successfully converted lead. Ongoing customer relationship.
@@ -16,14 +17,30 @@ const additionalNotesInfo = `Use this section to provide specific details or upd
 const LeadNotesScreen = ({navigation}: any) => {
   const {myLeads, setMyLeads, selectedLead} = useLeadsContext();
   const {theme} = useSettingsContext();
-  const [status, setStatus] = useState(selectedLead?.status || '');
+  const [status, setStatus] = useState('');
   const [topic, setTopic] = useState('');
   const [helpInfo, setHelpInfo] = useState('');
-  const [notes, setNotes] = useState(selectedLead?.notes || '');
+  const [notes, setNotes] = useState('');
   const [isModalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const {showMessage, FlashMessage} = createFlashMsg();
   const isDark = theme === 'dark';
+
+  const isFocused = useIsFocused();
+
+  useLayoutEffect(() => {
+    // Set initial values based on selectedLead when the screen comes into focus
+    if (selectedLead?.status) {
+      setStatus(selectedLead.status);
+    } else {
+      setStatus(""); // Resetting status when there is no selectedLead
+    }
+    if (selectedLead?.notes) {
+      setNotes(selectedLead.notes);
+    } else {
+      setNotes(""); // Resetting notes when there is no selectedLead
+    }
+  }, [selectedLead, isFocused]);
 
   const handleNotesChange = (text: string) => {
     const formattedText = text;

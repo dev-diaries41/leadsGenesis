@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, SafeAreaView, StyleSheet, Text, Alert, StatusBar} from 'react-native';
+import {View, SafeAreaView, StyleSheet, Text, Alert, StatusBar, ImageBackground} from 'react-native';
 import {useLeadsContext} from '../../context/LeadsContext';
 import {useSettingsContext } from '../../context/SettingsContext';
 import {themes, sizes } from '../../constants/layout';
@@ -19,6 +19,7 @@ const HomeScreen = ({navigation}: any) => {
   const [newNotification, setNewNotification] = useState('');
   const {showMessage, FlashMessage} = createFlashMsg();
   const isDark = theme === 'dark';
+
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -116,6 +117,7 @@ const HomeScreen = ({navigation}: any) => {
   };
 
   return (
+
     <SafeAreaView style = {[styles.container, {backgroundColor: isDark? themes.dark.backgroundColor: themes.light.backgroundColor}]}>
       <StatusBar backgroundColor="transparent" barStyle={isDark? 'light-content':'dark-content'} translucent />
       <InfoCard 

@@ -1,4 +1,4 @@
-import { MarketingAgency } from "./outreachEmails";
+import { MarketingAgency } from "./messages";
 import { placeholderResults } from "./placeholders";
 
 const defaultResultsMetadata = {

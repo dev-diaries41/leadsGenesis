@@ -10,7 +10,7 @@ import { useSearchContext } from '../../context/SearchContext';
 import { useSettingsContext } from '../../context/SettingsContext';
 import { themes, sizes } from '../../constants/layout';
 import {getLeads} from '../../utils/leadUtils/getLeads';
-import { noLeadsMessage } from '../../constants/systemMessages';
+import { noLeadsMessage } from '../../constants/messages';
 import {EmptyScreen} from '../EmptyScreen';
 import { LeadCard, Search, IconButton, createFlashMsg, TextWithIconButton, MenuModal, NoSearchResults } from '../../components';
 import { Lead } from '../../constants/types';

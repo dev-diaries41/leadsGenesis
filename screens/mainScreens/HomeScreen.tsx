@@ -5,7 +5,7 @@ import {useLeadsContext} from '../../context/LeadsContext';
 import {useSettingsContext } from '../../context/SettingsContext';
 import {themes, sizes } from '../../constants/layout';
 import {getLeads} from '../../utils/leadUtils/getLeads';
-import {getLeadDescription} from '../../constants/systemMessages';
+import {getLeadDescription} from '../../constants/messages';
 import {InfoCard, RedDot, IconButton, createFlashMsg, Button, InputField } from '../../components';
 
 

@@ -137,7 +137,7 @@ const initialConfig = {fetchedLeads, fetchedMetadata};
           <Drawer.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
           <Drawer.Screen name="Create Account" component={CreateAccountScreen} options={{ headerShown: false }} />
           <Drawer.Screen name="Forgot Password" component={ForgotPassword} options={{ headerShown: false }} />
-          <Drawer.Screen name="Sign Out" component={SignOutScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Sign Out" component={SignOutScreen} options={{ headerShown: false}} />
           <Drawer.Screen name="Home" component={HomeScreen}      
             options={({ navigation, route }) => ({
                 headerTitle: 'Lead Genesis', 

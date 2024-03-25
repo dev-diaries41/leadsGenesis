@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   });
   
 
-export {createFlashMsg};
+export default createFlashMsg;

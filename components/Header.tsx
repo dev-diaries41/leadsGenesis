@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { themes, sizes } from '../constants/layout';
 import { Ionicons } from '@expo/vector-icons';
-import { TextWithIconButton } from './TextWithIconButton';
+import TextWithIconButton  from './TextWithIconButton';
 import { HeaderProps, HeaderButtonProps } from '../constants/types';
 
 

@@ -1,7 +1,7 @@
 import React, {useRef, useLayoutEffect } from 'react';
 import { StyleSheet, View,Text, Modal, Animated, PanResponder } from 'react-native';
 import { themes, sizes } from '../constants/layout';
-import { TextWithIconButton } from './TextWithIconButton';
+import TextWithIconButton  from './TextWithIconButton';
 import { useLeadsContext } from '../context/LeadsContext';
 import { useSearchContext } from '../context/SearchContext';
 
@@ -254,4 +254,4 @@ const styles = StyleSheet.create({
     },   
 });
 
-export {MenuModal};
+export default MenuModal;

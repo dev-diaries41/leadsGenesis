@@ -65,6 +65,7 @@ const pickerStyles = StyleSheet.create({
   },
   pickerWrapper:{
     borderRadius:sizes.layout.medium,
+    justifyContent:'center',
     backgroundColor:'transparent',
     marginBottom:sizes.layout.small,
     borderColor:themes.borderColor,
@@ -73,4 +74,4 @@ const pickerStyles = StyleSheet.create({
 });
 
 
-export {CustomPicker}
+export default CustomPicker;

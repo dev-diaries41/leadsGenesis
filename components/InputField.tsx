@@ -11,18 +11,32 @@ const InputField = ({
   placeholder, 
   secureTextEntry = false, 
   errorText, 
-  color, 
+  color,
+  multiline = false,
+  height,
+  label
 }: InputFieldProps) => {
+  
+  const inputStyle = [
+    styles.input,
+    { color },
+    height && { height },
+    error && styles.inputError,
+  ];
   return (
     <View>
       {error && <Text style={styles.errorText}>{errorText}</Text>}
+      {label && <Text style={[styles.label, {color}]}>{label}</Text>}
       <TextInput
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
-        style={[styles.input, {color}, error && styles.inputError]}
+        style={inputStyle}
         placeholderTextColor={themes.placeholder}        
         secureTextEntry={secureTextEntry}
+        scrollEnabled
+        textAlignVertical='top'
+        multiline = {multiline}
       />
     </View>
   );
@@ -48,6 +62,11 @@ const styles = StyleSheet.create({
       fontFamily:'monserrat-regular',  
       marginTop: sizes.layout.xSmall,
     },
+    label:{
+      fontSize: sizes.font.small,
+      fontFamily:'monserrat-regular',
+      marginBottom: sizes.layout.xSmall,
+    }
   });  
 
-export {InputField};
+export default InputField;

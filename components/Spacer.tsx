@@ -11,5 +11,5 @@ const Spacer = ({marginBottom= sizes.layout.medium}: SpacerProps) => {
 
 }
 
-export {Spacer}
+export default Spacer;
 

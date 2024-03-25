@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, SafeAreaView, StyleSheet, Text, Alert, StatusBar, ImageBackground} from 'react-native';
+import {View, SafeAreaView, StyleSheet, Text, Alert, StatusBar} from 'react-native';
 import {useLeadsContext} from '../../context/LeadsContext';
 import {useSettingsContext } from '../../context/SettingsContext';
 import {themes, sizes } from '../../constants/layout';

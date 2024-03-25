@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { TextButton };
+export default TextButton;

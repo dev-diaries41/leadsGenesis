@@ -4,7 +4,7 @@ import { sizes, themes } from '../constants/layout';
 import { Button } from '../components/Buttons';
 import { useSettingsContext } from '../context/SettingsContext';
 import { HeaderButton } from '../components/Header';
-import {createFlashMsg} from '../components/FlashMessage';
+import createFlashMsg from '../components/FlashMessage';
 
 
 const {height} = Dimensions.get('screen');

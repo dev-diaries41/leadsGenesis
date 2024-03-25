@@ -138,17 +138,10 @@ const save = async (uri: string, filename: string, mimetype: string) => {
   };
 
   const renderLead = ({ item }: any) => (
-    
-    <View
-      // entering={SlideInLeft.springify().damping(15)}
-      // layout={Layout.springify().damping(15)}
-
-  > 
     <LeadCard
       lead={item}
       handleLeadPress={handleLeadPress}
     />
-    </View>
   );
 
   const calcRemainingPages = (totalResults: number, page: number, perPage: number) =>
@@ -227,7 +220,7 @@ const save = async (uri: string, filename: string, mimetype: string) => {
         )}
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0.2}
-        showsVerticalScrollIndicator={true}
+        showsVerticalScrollIndicator={false}
       />
       </View>
       <FlashMessage/>

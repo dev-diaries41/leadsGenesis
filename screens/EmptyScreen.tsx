@@ -38,7 +38,7 @@ const EmptyScreen = ({title, description, metadata, icon, metadataIcon}: EmptySc
           backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
           highlighterBackground={isDark? themes.dark.primaryColor:themes.light.secondaryBackgroundColor}
           color={isDark? themes.dark.textColor:themes.light.textColor}
-          iconColor={isDark? themes.dark.icon:themes.secondaryIcon}
+          metadataColor={isDark? themes.dark.primaryColor:themes.dark.primaryColor}
         />
         <View style={styles.buttonContainer}>
           <Button

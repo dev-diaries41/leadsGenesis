@@ -1,4 +1,4 @@
-import {StyleSheet, SafeAreaView, Text, TextInput, View, ScrollView } from 'react-native';
+import {StyleSheet, SafeAreaView, Text, View, ScrollView } from 'react-native';
 import React, { useState} from 'react'
 import { useSettingsContext } from '../../context/SettingsContext';
 import { Button, Spacer, InputField } from '../../components';

@@ -6,7 +6,7 @@ import axios from 'axios';
 import { themes, sizes } from '../../constants/layout';
 import { useLeadsContext } from '../../context/LeadsContext';
 import { useSettingsContext } from '../../context/SettingsContext';
-import { FooterButtons, IconButton, createFlashMsg } from '../../components';
+import { FooterButtons, createFlashMsg } from '../../components';
 
 const AboutScreen = ({navigation, route}: any) => {
     const {lead} = route?.params || {};

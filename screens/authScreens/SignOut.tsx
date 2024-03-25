@@ -1,6 +1,5 @@
 import { Text, StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { themes, sizes } from '../../constants/layout';
 import { useSettingsContext } from '../../context/SettingsContext';
 import { Button, Spacer } from '../../components';

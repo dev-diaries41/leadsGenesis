@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
 
   },
 });
-export {SettingsCard};
+export default SettingsCard;

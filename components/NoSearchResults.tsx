@@ -3,7 +3,7 @@ import React from 'react'
 import { themes, sizes } from '../constants/layout'
 import { Ionicons } from '@expo/vector-icons'
 
-export const NoSearchResults = () => {
+ const NoSearchResults = () => {
   return (
     <View style={styles.container}>
         <Ionicons name='search' size={120} color={themes.placeholder}/>
@@ -31,3 +31,5 @@ const styles = StyleSheet.create({
         fontFamily:'monserrat-regular'  
       },
 })
+
+export default NoSearchResults;

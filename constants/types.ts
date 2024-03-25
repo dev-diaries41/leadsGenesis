@@ -133,7 +133,7 @@ interface InfoCardProps {
   metadataIcon: any, 
   highlighterBackground: string;
   color?: string;
-  iconColor?: string;
+  metadataColor?: string;
   backgroundColor?: string;
 }
 
@@ -164,6 +164,7 @@ interface HeaderButtonProps {
 }
 
 
+
 interface InputFieldProps { 
   value: string; 
   onChangeText: (text: string) => Promise<void> | void;
@@ -171,7 +172,10 @@ interface InputFieldProps {
   placeholder: string; 
   secureTextEntry?: boolean; 
   errorText?: string; 
-  color: string; 
+  color: string;
+  multiline?: boolean
+  height?: number;
+  label?: string;
 }
 
 interface LeadCardProps {

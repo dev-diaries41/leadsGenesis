@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { FooterButtons };
+export default FooterButtons;

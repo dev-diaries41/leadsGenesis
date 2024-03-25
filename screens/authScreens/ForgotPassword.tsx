@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Platform, ActivityIndicator, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, SafeAreaView } from 'react-native';
 import React, { useState } from 'react'
 import { themes, sizes } from '../../constants/layout';
 import { useSettingsContext } from '../../context/SettingsContext';

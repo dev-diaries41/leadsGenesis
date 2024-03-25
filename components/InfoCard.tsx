@@ -13,7 +13,7 @@ const InfoCard = ({
   metadataIcon, 
   highlighterBackground,
   color = themes.light.textColor,
-  iconColor = themes.light.primaryColor,
+  metadataColor = themes.light.primaryColor,
   backgroundColor = themes.light.containerBackground
 }: InfoCardProps) => {
   return (
@@ -21,18 +21,18 @@ const InfoCard = ({
         <View 
           style={[styles.cardContainer, {backgroundColor}]}>
             <View style = {[styles.rowContainer]}>
-              <Text numberOfLines={1} style={[styles.title, {color:iconColor}]}>{title}</Text>
-              <Ionicons name={icon} size={24} color={iconColor} style={{marginLeft:"auto"}} />
+              <Text numberOfLines={1} style={[styles.title, {color}]}>{title}</Text>
+              <Ionicons name={icon} size={24} color={color} style={{marginLeft:"auto"}} />
             </View>
             {description && 
               <View style={styles.rowContainer}>
-              <Ionicons name={"information-circle"} size={24} color={iconColor} />
+              <Ionicons name={"information-circle"} size={24} color={color} />
               <Text style={[styles.infoText, {color}]}>{description}</Text>
               </View>
             }
              <View style={[styles.rowContainer, styles.highlighter, {backgroundColor: highlighterBackground}]}>
-              <Ionicons name={metadataIcon} size={24} color={iconColor} />
-              <Text style={[styles.highlighterText, {color:iconColor}]}>{metadata}</Text>
+              <Ionicons name={metadataIcon} size={24} color={color} />
+              <Text style={[styles.highlighterText, {color:metadataColor}]}>{metadata}</Text>
             </View>
         </View>
 
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {InfoCard};
+export default InfoCard;

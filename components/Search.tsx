@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {Search};
+export default Search;

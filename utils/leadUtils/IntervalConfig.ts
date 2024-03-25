@@ -1,4 +1,4 @@
-const cronTimeOptions = [
+export const cronTimeOptions = [
     { duration: '1 minute', cron: '*/1 * * * *' },
     { duration: '5 minutes', cron: '*/5 * * * *' },
     { duration: '15 minutes', cron: '*/15 * * * *' },
@@ -10,4 +10,3 @@ const cronTimeOptions = [
     { duration: '1 month', cron: '0 0 1 */1 *' },
   ];
 
-  export {cronTimeOptions};

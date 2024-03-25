@@ -157,4 +157,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export { LeadCard };
+export default LeadCard;

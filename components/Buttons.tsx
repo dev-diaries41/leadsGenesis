@@ -4,7 +4,7 @@ import { themes, sizes } from '../constants/layout';
 import { Ionicons } from '@expo/vector-icons';
 import { ButtonProps, GradientButtonProps } from '../constants/types';
 
- const GradientButton  = ({ 
+ export const GradientButton  = ({ 
   loading, 
   disabled, 
   onPress, 
@@ -40,7 +40,7 @@ import { ButtonProps, GradientButtonProps } from '../constants/types';
   };
 
 
-  const Button = ({ 
+  export const Button = ({ 
     loading, 
     disabled, 
     onPress, 
@@ -110,5 +110,3 @@ import { ButtonProps, GradientButtonProps } from '../constants/types';
     },
   });
   
-
-export {GradientButton, Button}

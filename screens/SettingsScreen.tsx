@@ -4,7 +4,7 @@ import * as SystemUI from 'expo-system-ui';;
 import { themes, sizes } from '../constants/layout';
 import { useSettingsContext } from '../context/SettingsContext';
 import * as SecureStore from 'expo-secure-store';
-import { SettingsCard } from '../components/SettingsCard';
+import SettingsCard from '../components/SettingsCard';
 
 
 const SettingsScreen = ({navigation}: any) => {

@@ -112,7 +112,7 @@ const handleSave = () => {
                 borderColor:isDark? themes.dark.primaryColor:themes.light.borderColor,
               }]
             }
-            placeholder="This company is interested in partnership and is considering a meeting"
+            placeholder="This company is interested in partnership and is considering a meeting..."
             placeholderTextColor={themes.placeholder}            
             value={notes}
             onChangeText={handleNotesChange}

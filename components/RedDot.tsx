@@ -15,4 +15,4 @@ import {View, StyleSheet} from 'react-native';
       backgroundColor: 'red',
     },
   });
-  export {RedDot}
+  export default RedDot;

@@ -28,4 +28,4 @@ const TextWithIconButton = ({
         fontFamily:'monserrat-regular', 
       }
   })
-  export {TextWithIconButton}
+  export default TextWithIconButton;

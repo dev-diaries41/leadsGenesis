@@ -98,6 +98,9 @@ const HomeScreen = ({navigation}: any) => {
   Math.max(0, Math.ceil((totalResults - page * perPage) / perPage));
 
   const fetchLeads = async() => {
+    if(!process.env.GET_LEADS_URL){
+     return Alert.alert("Not available", 'This feature is not available for builds from the github repo. Make an issue if you want to use the app in beta');
+    }
     try{
       setLoading(true)
       const {success, data, totalResults, page, perPage} = await getLeads(queryPostcode, keywords);
@@ -129,9 +132,7 @@ const HomeScreen = ({navigation}: any) => {
         backgroundColor={isDark? themes.dark.containerBackground:themes.light.containerBackground}
         highlighterBackground={isDark? themes.dark.primaryColor:themes.light.secondaryBackgroundColor}
         color={isDark? themes.dark.textColor:themes.light.textColor}
-        iconColor={isDark? themes.dark.icon:themes.secondaryIcon}
-
-
+        metadataColor={isDark? themes.dark.primaryColor:themes.dark.primaryColor}
       />
       <View style={[styles.inputContainer,{ backgroundColor: isDark? themes.dark.containerBackground:themes.light.containerBackground}]}>
           <Text style ={[styles.label,{color:isDark? themes.dark.textColor:themes.light.textColor,}]}>Postcode:</Text>
